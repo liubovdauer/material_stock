@@ -72,7 +72,7 @@ Dieses Projekt implementiert eine vollständige End-to-End Integration auf der *
              │   ZCL_MATERIAL_STOCK_API_NEU   │
              │   API Client · JSON Deseri.    │
              └──────────────┬─────────────────┘
-                            │ GET /A_MaterialStock
+                            │ GET /A_MatlStkInAcctMod
                             │ APIKey Header
              ┌──────────────▼─────────────────┐
              │  SAP S/4HANA Cloud API Sandbox │
@@ -87,7 +87,7 @@ Dieses Projekt implementiert eine vollständige End-to-End Integration auf der *
 1. Der Client (Fiori oder HTTP-Client) sendet eine Anfrage an den **OData V4 Service** `ZSB_MATERIAL_STOCK_NEU`.
 2. Der Service liest die **CDS Custom Entity** `ZCE_MATERIAL_STOCK`, die das Datenschema definiert und den Query Handler referenziert.
 3. Der **Query Handler** `ZCL_MATERIAL_STOCK_QUERY` (implementiert `IF_RAP_QUERY_PROVIDER`) wird automatisch aufgerufen und delegiert an den API Client.
-4. Der **API Client** `ZCL_MATERIAL_STOCK_API_NEU` sendet einen ausgehenden HTTP-Request an die SAP Sandbox API: `GET /A_MaterialStock?$top=5&$format=json` mit einem `APIKey`-Header.
+4. Der **API Client** `ZCL_MATERIAL_STOCK_API_NEU` sendet einen ausgehenden HTTP-Request an die SAP Sandbox API: `GET /A_MatlStkInAcctMod?$top=5&$format=json` mit einem `APIKey`-Header.
 5. Die JSON-Antwort wird in eine ABAP-Tabelle deserialisiert.
 6. Der Query Handler konvertiert die Daten in den Custom Entity Typ, wendet Paging an und gibt die Ergebnisse an den Client zurück.
 
@@ -111,7 +111,7 @@ Dieses Projekt implementiert eine vollständige End-to-End Integration auf der *
 
 **Endpoint:**
 ```
-GET https://sandbox.api.sap.com/s4hanacloud/sap/opu/odata/sap/API_MATERIAL_STOCK_SRV/A_MaterialStock?$top=5&$format=json
+GET https://sandbox.api.sap.com/s4hanacloud/sap/opu/odata/sap/API_MATERIAL_STOCK_SRV/A_MatlStkInAcctMod?$top=5&$format=json
 ```
 
 **Authentifizierung:** `APIKey` Header — kostenlos erhältlich auf [api.sap.com](https://api.sap.com) nach dem Login über „Show API Key".
